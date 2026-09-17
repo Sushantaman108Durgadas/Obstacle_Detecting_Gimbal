@@ -243,7 +243,7 @@ scanning logic to be tested without requiring physical hardware.
 
 ### 🔗 Wokwi Simulation
 
-[Open Wokwi Simulation]([YOUR_WOKWI_LINK](https://wokwi.com/projects/439553500260642817))
+[Open Wokwi Simulation](https://wokwi.com/projects/439553500260642817)
 
 ### 🔗 GitHub Repository
 
