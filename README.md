@@ -243,11 +243,11 @@ scanning logic to be tested without requiring physical hardware.
 
 ### 🔗 Wokwi Simulation
 
-[Open Wokwi Simulation](YOUR_WOKWI_LINK)
+[Open Wokwi Simulation]([YOUR_WOKWI_LINK](https://wokwi.com/projects/439553500260642817))
 
 ### 🔗 GitHub Repository
 
-[View the Complete Source Code on GitHub](https://github.com/YOUR_USERNAME/Obstacle-Detecting-Gimbal)
+[View the Complete Source Code on GitHub](https://github.com/Sushantaman108Durgadas/Obstacle_Detecting_Gimbal)
 
 ---
 
@@ -280,12 +280,13 @@ For simulation, open the corresponding Wokwi project.
 # 📂 Project Structure
 
 ```text
-Obstacle-Detecting-Gimbal/
+Obstacle_Detecting_Gimbal/
 │
 ├── src/
 │   ├── main.cpp
-│   ├── Obstacledetect.cpp
-│   └── Obstacledetect.h
+│   └── Obstacledetect/
+│       ├── Obstacledetect.cpp
+│       └── Obstacledetect.h
 │
 ├── diagram.json
 ├── wokwi.toml
