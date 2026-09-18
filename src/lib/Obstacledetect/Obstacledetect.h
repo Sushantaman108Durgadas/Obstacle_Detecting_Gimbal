@@ -31,3 +31,4 @@ class Obstacledetect{
     void gimbal_obstacle_detect();
     void check_thres_condition();
 };
+#endif
