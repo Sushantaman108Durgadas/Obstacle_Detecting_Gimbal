@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/ObstacleDetectingGimbal.ino.bin'
+elf = 'build/ObstacleDetectingGimbal.ino.elf'
