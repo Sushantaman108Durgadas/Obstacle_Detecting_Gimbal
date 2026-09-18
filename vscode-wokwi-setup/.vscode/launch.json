@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/suyas/Downloads/ObstacleDetectingGimbal",
-      "program": "c:/Users/suyas/Downloads/ObstacleDetectingGimbal/build/Debug/outDebug",
+      "cwd": "CHANGE_THIS_TO_YOUR_PROJECT_PATH",
+      "program": "CHANGE_THIS_TO_YOUR_PROJECT_PATH/build/..."
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
