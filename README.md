@@ -35,7 +35,7 @@ determine the spatial position of detected objects through
 The project is developed using **Embedded C++ with the Arduino framework**
 and can be tested using the **Wokwi simulation environment**.
 
-The project also includes a reproducible **VS Code + Arduino CLI + Wokwi**
+The repository also includes a reproducible **VS Code + Arduino CLI + Wokwi**
 development setup for building and testing the firmware locally.
 
 ---
@@ -63,7 +63,7 @@ The system follows a spatial sensing pipeline:
           Coordinate Transformation
                      │
                      ▼
-               X / Y / Z
+                  X / Y / Z
                      │
                      ▼
              Obstacle Detection
@@ -228,8 +228,8 @@ float limits[2][2] = {
 The array is passed to the class, where the pointer provides access to
 the same configuration.
 
-This avoids creating another copy of the scanning configuration and
-allows the scan range to be configured externally.
+This allows the scanning range to be configured externally without
+creating another copy of the configuration array.
 
 ---
 
@@ -317,11 +317,11 @@ without requiring physical hardware.
 
 ### 🔗 Wokwi Simulation
 
-Open the Wokwi simulation associated with this project.
+[Open Wokwi Simulation](https://wokwi.com/projects/439553500260642817)
 
 ### 🔗 GitHub Repository
 
-This repository contains the complete source code and development setup.
+[View the Complete Source Code](https://github.com/Sushantaman108Durgadas/Obstacle_Detecting_Gimbal)
 
 ---
 
@@ -336,7 +336,7 @@ There are two ways to work with this project:
 
 # 🌐 Run the Wokwi Simulation
 
-The project can be simulated directly in Wokwi.
+The project can be simulated directly using Wokwi.
 
 The simulation contains:
 
@@ -346,7 +346,9 @@ The simulation contains:
 * Required connections
 * Project firmware configuration
 
-The Wokwi project can be opened using the project's Wokwi link.
+### 🔗 Open the Simulation
+
+[Open Wokwi Simulation](https://wokwi.com/projects/439553500260642817)
 
 ---
 
@@ -385,8 +387,11 @@ vscode-wokwi-setup/README.md
 
 Install **Visual Studio Code**.
 
-The **Wokwi for VS Code** extension is required to run the simulation
-locally.
+Install the following extension:
+
+* **Wokwi for VS Code**
+
+This extension is used to run the hardware simulation locally.
 
 ---
 
@@ -394,7 +399,7 @@ locally.
 
 Arduino CLI is used to compile the ESP32 firmware.
 
-Verify the installation using:
+Verify the installation:
 
 ```powershell
 arduino-cli version
@@ -404,29 +409,41 @@ arduino-cli version
 
 ## 3️⃣ Configure the ESP32 Arduino Core
 
-Add the ESP32 board package repository:
+Initialize the Arduino CLI configuration:
 
 ```powershell
 arduino-cli config init
+```
 
+Add the ESP32 board package repository:
+
+```powershell
 arduino-cli config add board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+```
 
+Update the board index:
+
+```powershell
 arduino-cli core update-index
+```
 
+Install the ESP32 Arduino Core:
+
+```powershell
 arduino-cli core install esp32:esp32
 ```
 
 ---
 
-## 4️⃣ Install ESP32Servo
+## 4️⃣ Install the Required Library
 
-Install the required servo library:
+Install the `ESP32Servo` library:
 
 ```powershell
 arduino-cli lib install ESP32Servo
 ```
 
-The project dependency is also specified in:
+The required library is also listed in:
 
 ```text
 libraries.txt
@@ -434,7 +451,7 @@ libraries.txt
 
 ---
 
-## 5️⃣ Open the Project in VS Code
+## 5️⃣ Open the Setup Folder in VS Code
 
 Open the following directory as the VS Code workspace:
 
@@ -442,7 +459,7 @@ Open the following directory as the VS Code workspace:
 vscode-wokwi-setup/
 ```
 
-Make sure the terminal is opened inside this directory before building.
+Make sure the integrated terminal is opened inside this directory.
 
 ---
 
@@ -454,10 +471,10 @@ If using the provided VS Code debugging configuration, open:
 .vscode/launch.json
 ```
 
-Some values in this file are machine-specific.
+Some values in `launch.json` are **machine-specific**.
 
 Replace the required project paths with paths corresponding to your own
-local installation.
+local project directory.
 
 For example:
 
@@ -467,7 +484,7 @@ For example:
 ```
 
 > ⚠️ Do not copy another user's absolute Windows paths directly.
-> Update machine-specific paths before using the configuration.
+> Replace machine-specific paths before running the configuration.
 
 No passwords, API keys, tokens, or other secrets should be placed inside
 `launch.json`.
@@ -476,14 +493,19 @@ No passwords, API keys, tokens, or other secrets should be placed inside
 
 ## 7️⃣ Build the Firmware
 
-Run the following command from the project directory:
+Run the following command from inside the
+`vscode-wokwi-setup/` directory:
 
 ```powershell
 arduino-cli compile --fqbn esp32:esp32:esp32 --output-dir build .
 ```
 
-Arduino CLI will compile the Arduino sketch together with the required
-source files and libraries.
+Arduino CLI will compile:
+
+* `ObstacleDetectingGimbal.ino`
+* `Obstacledetect.cpp`
+* `Obstacledetect.h`
+* Required Arduino and ESP32 libraries
 
 A successful build generates firmware artifacts inside:
 
@@ -505,8 +527,8 @@ diagram.json
 
 using the Wokwi extension.
 
-The `wokwi.toml` configuration specifies the compiled firmware and ELF
-files used by the simulation.
+The `wokwi.toml` file specifies the compiled firmware and ELF files
+required by the simulation.
 
 Start the simulation and monitor the generated measurements through the
 Serial Monitor.
@@ -521,7 +543,7 @@ The local development workflow can be summarized as:
               Source Code
                    │
                    ▼
-             Visual Studio Code
+          Visual Studio Code
                    │
                    ▼
               Arduino CLI
@@ -533,7 +555,7 @@ The local development workflow can be summarized as:
                 build/
              ┌─────┴─────┐
              │           │
-          .bin          .elf
+           .bin         .elf
              │           │
              └─────┬─────┘
                    ▼
@@ -543,14 +565,14 @@ The local development workflow can be summarized as:
              Serial Monitor
 ```
 
-The `build/` directory contains generated compilation artifacts and is
-not part of the source project.
+The `build/` directory contains generated compilation artifacts and
+should not be committed to the repository.
 
 ---
 
 # 📘 Detailed VS Code Setup
 
-For a complete step-by-step guide covering:
+For the complete setup instructions covering:
 
 * Arduino CLI installation
 * ESP32 Arduino Core installation
@@ -570,8 +592,9 @@ see:
 vscode-wokwi-setup/README.md
 ```
 
-This keeps the main project documentation focused on the engineering
-project while keeping the development environment reproducible.
+The setup directory is intended to make the development environment
+reproducible while keeping generated build files and machine-specific
+paths separate from the primary project source.
 
 ---
 
@@ -641,8 +664,13 @@ Obstacledetect/
 └── Obstacledetect.h
 ```
 
-The class handles the gimbal scanning, distance sensing, coordinate
-transformation, and obstacle condition processing.
+The class handles:
+
+* Gimbal scanning
+* Servo control
+* Distance sensing
+* Coordinate transformation
+* Obstacle condition processing
 
 ---
 
@@ -650,15 +678,13 @@ transformation, and obstacle condition processing.
 
 Contains supporting project documentation and visual assets.
 
-Currently:
-
 ```text
 utils/
 └── architecture.png
 ```
 
-The architecture diagram is used in this README to provide a visual
-representation of the firmware and hardware interaction.
+The architecture diagram provides a visual representation of the
+firmware and hardware interaction.
 
 ---
 
@@ -668,7 +694,7 @@ Contains a self-contained local development and simulation environment.
 
 It is intended to make the **VS Code + Arduino CLI + Wokwi** workflow
 reproducible without mixing generated build files or machine-specific
-paths into the primary project source.
+paths into the primary source structure.
 
 ---
 
@@ -676,8 +702,6 @@ paths into the primary project source.
 
 The current system provides the sensing and spatial-processing foundation
 for more advanced robotic applications.
-
-Possible extensions include:
 
 ## 📡 Sensing Improvements
 
@@ -768,4 +792,3 @@ See the **LICENSE** file for details.
 *"Good embedded systems begin with understanding the physical world they interact with."*
 
 </div>
-```
