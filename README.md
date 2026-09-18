@@ -179,11 +179,7 @@ The project uses an **Object-Oriented C++ architecture** to separate the
 main firmware entry point from the gimbal and sensing logic.
 
 <p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Sushantaman108Durgadas/Obstacle_Detecting_Gimbal/main/utils/architecture.png"
-    alt="Obstacle Detecting Gimbal Architecture"
-    width="750"
-  >
+  <img src="utils/architecture.png" width="750">
 </p>
 
 The primary firmware entry point starts the Arduino lifecycle and invokes
